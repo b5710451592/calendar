@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
  */
 public class View  {
 
+    @FXML
+    public DatePicker datePicker;
 
 
     @FXML
@@ -22,7 +24,7 @@ public class View  {
 
     @FXML
     protected ObservableList<String>items = FXCollections.observableArrayList ();
-            //"Single", "Double", "Suite", "Family App");
+
 
     @FXML
     protected Button addButton;
@@ -73,7 +75,8 @@ public class View  {
 
 
         try {
-            controller.insert(textFieldDate.getText(), textFieldTime.getText(), textAreaDetail.getText());
+            //controller.insert(textFieldDate.getText(), textFieldTime.getText(), textAreaDetail.getText());
+            controller.insert(String.valueOf(datePicker.getValue()), textFieldTime.getText(), textAreaDetail.getText());
             controller.loadData(items,listView);
         }
         catch (Exception e){
@@ -81,9 +84,9 @@ public class View  {
         }
 
 
-
+        datePicker.getEditor().clear();
         textAreaDetail.clear();
-        textFieldDate.clear();
+
         textFieldTime.clear();
     }
 

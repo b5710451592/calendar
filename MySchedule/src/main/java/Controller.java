@@ -8,9 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-
-
+import java.time.LocalDate;
 
 
 public class Controller {
@@ -86,7 +84,7 @@ public class Controller {
             resultSet = pst.executeQuery();
 
             while(resultSet.next()) {
-                items.add(resultSet.getString(1)+"|"+resultSet.getString(2)+"|"+
+                items.add(resultSet.getString(1)+" | "+resultSet.getString(2)+" | "+
                         resultSet.getString(3));
 
 
@@ -120,7 +118,7 @@ public class Controller {
             while(resultSet.next()) {
 
             if (findString.equals(resultSet.getString(1))) {
-                items.add(resultSet.getString(1) + "|" + resultSet.getString(2) + "|" +
+                items.add(resultSet.getString(1) + resultSet.getString(2)  +
                         resultSet.getString(3));
             }
             }
@@ -130,6 +128,10 @@ public class Controller {
         }
 
     }
+
+
+
+
 
 
 
