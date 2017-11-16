@@ -1,13 +1,11 @@
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
+
+import java.sql.*;
 
 
-public class JdbcSQLiteConnection {
+public class JdbcSQLiteConnection implements DatabaseController{
 
 
     public static void main(String[] args) {
@@ -44,11 +42,42 @@ public class JdbcSQLiteConnection {
 }
 
 
+    public Connection databaseConnection() throws SQLException {
+        Connection conn = null;
+        try {
+            // setup
+            Class.forName("org.sqlite.JDBC");
+            String dbURL = "jdbc:sqlite:Myschedule.db";
+            conn = DriverManager.getConnection(dbURL);
+            if (conn != null) {
+                System.out.println("Connected to the database.");
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return conn;
+    }
+
+    public void loadDataFromDB(ObservableList<String> tableList, ListView<String> table) throws SQLException {
+
+    }
+
+    public void saveEvent(String c) throws SQLException {
+
+    }
+
+    public void editEvent(int num, String c) throws SQLException {
+
+    }
+
+    public void deleteEvent(int num) throws SQLException {
 
 
+    }
 
+    public void searchEvent(ObservableList<String> tableList, ListView<String> table, String date) throws SQLException {
 
-
-
-
+    }
 }

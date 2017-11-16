@@ -63,6 +63,14 @@ public class View  {
     Controller controller = new Controller();
 
 
+    @FXML
+    public void initialize() throws SQLException, ClassNotFoundException {
+
+        controller.loadData(items,listView);
+
+    }
+
+
 
 
 

@@ -2,6 +2,8 @@
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +18,9 @@ public class Controller {
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet resultSet = null;
+   // ApplicationContext context = new ClassPathXmlApplicationContext("DatabaseManager.xml");
+  //  DatabaseHandler db = (DatabaseHandler) context.getBean("lister");
+
 
 
     public Connection databaseConnection() throws SQLException {
